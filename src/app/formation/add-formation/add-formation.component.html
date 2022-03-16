@@ -1,0 +1,65 @@
+<div class="container">
+    <div  style="display: flex; justify-content: space-between;margin: 32px 24px;">
+
+        <h2>Ajouter</h2>
+        <button class="btn btn-primary col-2" routerLink="/dashboard/list-formation">Liste</button>
+    </div>
+
+
+</div>
+
+<div class="container mt-5">
+    <div class="row" style="display: flex;justify-content: center;align-items:center">
+      <div class="col-6">
+        <input type="text" [(ngModel)]="formation.title"   class="form-control m-2" placeholder="title">
+  
+        <input type="text" [(ngModel)]="formation.description" class="form-control m-2" placeholder="description">
+        <input type="date"  [(ngModel)]="formation.date"class="form-control m-2" placeholder="date">
+        <input type="text" [(ngModel)]="formation.nbrHeures" class="form-control m-2" placeholder="nbrHeures">
+  
+        
+  
+        <div class="mb-3">
+          <label for="example-select" class="form-label">formateur</label>
+          <select  [(ngModel)]="formation.formateur" class="form-control m-2" id="example-select">
+              <option *ngFor="let f of listf"  value=" {{f._id}}">{{f.name}}</option>
+              
+          </select>
+      </div>
+
+
+
+
+        <input type="text" [(ngModel)]="formation.specialite"  class="form-control m-2" placeholder="specialite">
+        <input type="file"(change)="selectedimage($event)"class="form-control m-2" placeholder="image">
+
+
+         <div class="mb-3 ">
+          <label for="example-multiselect" class="form-label">Groupe</label>
+          <!-- <select [(ngModel)]="formation.groupe" multiple class="form-control m-2">
+              <option *ngFor=" let l of list" value=" {{l._id}}">{{l.name}}</option>
+              
+          </select> -->
+
+          <ng-multiselect-dropdown
+            [placeholder]="'groupe'"
+            [settings]="dropdownSettings"
+            [data]="list"
+            [(ngModel)]="formation.groupe"
+           
+          >
+          </ng-multiselect-dropdown>
+      </div>
+        <input type="number" [(ngModel)]="formation.prix"  class="form-control m-2" placeholder="prix">
+        <input type="text" [(ngModel)]="formation.technologies"  class="form-control m-2" placeholder="technologies">
+        <button class="btn btn-success m-2 from-control " (click)="ajout()">ajouter</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  

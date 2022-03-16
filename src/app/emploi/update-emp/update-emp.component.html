@@ -1,0 +1,89 @@
+<!-- <div class="container mt-5">
+        <div class="row" style="display: flex;justify-content: center;align-items:center">
+            <div class="col-6">
+                <input type="text" [(ngModel)]="emploi.title" class="form-control m-2" placeholder="titre">
+                <input type="text" [(ngModel)]="emploi.description" class="form-control m-2" placeholder="description">
+                <input type="Date" [(ngModel)]="emploi.dateheure" class="form-control m-2" placeholder="Date">
+
+
+
+                <select [(ngModel)]="emploi.idFormation" class="form-control m-2" id="example-select ">
+                    <option *ngFor="let l of list " value="{{l._id}}" >{{l.title}}</option>
+                </select>
+
+
+                <button class="btn btn-dark m-2 from-control" (click)="ajout()">update</button>
+            </div>
+        </div>
+    </div> -->
+
+<br>
+
+<br>
+<br>
+
+<div class="row ">
+    <div class="col-12 ">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="row">
+
+                    <div class="col-xl-12">
+                        <div class="mb-3">
+                            <label for="projectname" class="form-label"> Titre </label>
+                            <input type="text" [(ngModel)]="emploi.title" id="projectname" class="form-control" placeholder="Saisir un titre de l'emploi">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="project-overview" class="form-label">Description</label>
+                            <textarea class="form-control" [(ngModel)]="emploi.description" id="project-overview" rows="5" placeholder="Saisir une description de l'emploi"></textarea>
+                        </div>
+
+                        <!-- Date View -->
+                        <div class="mb-3 position-relative" id="datepicker1">
+                            <label class="form-label">Start Date</label>
+                            <input type="datetime-local" [(ngModel)]="emploi.dateheure" class="form-control">
+                        </div>
+
+                        <div class="mb-3 position-relative" id="datepicker1">
+                            <label class="form-label">End Date</label>
+                            <input type="datetime-local" [(ngModel)]="emploi.endDate" class="form-control">
+                        </div>
+
+
+
+                        <div class="mb-0">
+                            <label for="project-overview" class="form-label">Formation Adéquate</label>
+
+                            <div class="mb-3">
+
+                                <select [(ngModel)]="emploi.idFormation" class=" form-select " id="example-select ">
+                                        <option *ngFor="let l of list " value="{{l._id}}">{{l.title}}</option>
+                                    </select>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <!-- end col-->
+
+
+                    <!-- end col-->
+                </div>
+                <!-- end row -->
+
+            </div>
+            <!-- end card-body -->
+        </div>
+        <!-- end card-->
+    </div>
+    <!-- end col-->
+</div>
+<!-- end row-->
+
+<button class="btn btn-primary m-2 from-control " (click)="ajout() ">Ajouter un Emploi</button>
+<br>
+<br>
+<br>

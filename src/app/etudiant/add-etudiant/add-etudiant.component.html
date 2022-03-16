@@ -1,0 +1,106 @@
+<div class="container">
+    <div style="display: flex; justify-content: space-between;margin: 32px 24px;">
+
+        <h2>Ajout des étudiants</h2>
+        <button class="btn btn-primary col-2" routerLink="/dashboard/list-us">Liste</button>
+    </div>
+
+
+</div>
+
+<div class="container mt-5">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class=" row " style="display: flex;justify-content: center;align-items:center ">
+            <div class="col-6 ">
+
+                <div class="form-group ">
+                    <input type="text" formControlName="name" [(ngModel)]="etudiant.name " [pattern]="namePattern" class="form-control m-2 " placeholder="name ">
+                    <div *ngIf="f['name'].touched && f['name'].invalid" class="text-danger">
+                        <div *ngIf="f['name'].errors && f['name'].errors['required']">Nom Invalide </div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <input type=" text " formControlName="lastname" [pattern]="lastnamePattern" [(ngModel)]="etudiant.lastname " class="form-control m-2 " placeholder="lastname ">
+                    <div *ngIf="f['lastname'].touched && f['lastname'].invalid" class="text-danger">
+                        <div *ngIf="f['lastname'].errors && f['lastname'].errors['required']">Prenom Invalide</div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <input type="radio" class="form-control m-2 " value="male" [(ngModel)]="etudiant.genre " id="gender" name="gender" formControlName="genre"> Male
+                    <input type="radio" class="form-control m-2 " value="female" [(ngModel)]="etudiant.genre " id="gender" name="gender" formControlName="gender"> Female
+                    <!-- <input type="text " formControlName="genre" [(ngModel)]="etudiant.genre " class="form-control m-2 " placeholder="genre "> -->
+                    <div *ngIf="f['genre'].touched && f['genre'].invalid" class="text-danger">
+                        <div *ngIf="f['genre'].errors && f['genre'].errors['required']">Genre Invalide</div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <input type="number " formControlName="age" [pattern]="agePattern" [(ngModel)]="etudiant.age " class="form-control m-2 " placeholder="age ">
+                    <div *ngIf="f['age'].touched && f['age'].invalid" class="text-danger">
+                        <div *ngIf="f['age'].errors && f['age'].errors['required']"> Age Invalide</div>
+                    </div>
+                </div>
+
+
+                <input type="file" (change)="selectedimage($event) " class="form-control m-2 " placeholder="image ">
+
+
+                <div class="form-group ">
+                    <input type="text " formControlName="specialite" [pattern]="specialitePattern" [(ngModel)]="etudiant.specialite " class="form-control m-2 " placeholder="specialite ">
+                    <div *ngIf="f['specialite'].touched && f['specialite'].invalid" class="text-danger">
+                        <div *ngIf="f['specialite'].errors && f['specialite'].errors['required']">Spécialité Invalide</div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <input type="text " formControlName="linkFb" [pattern]="linkFbPattern" [(ngModel)]="etudiant.linkFb " class="form-control m-2 " placeholder="LinkFb ">
+                    <div *ngIf="f['linkFb'].touched && f['linkFb'].invalid" class="text-danger">
+                        <div *ngIf="f['linkFb'].errors && f['linkFb'].errors['required']"> lien Facebook Invalide </div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <input type="text " formControlName="linkLn" [pattern]="linkLnPattern" [(ngModel)]="etudiant.linkLn " class="form-control m-2 " placeholder="LinkLn ">
+                    <div *ngIf="f['linkLn'].touched && f['linkLn'].invalid" class="text-danger">
+                        <div *ngIf="f['linkLn'].errors && f['linkLn'].errors['required']"> lien LinkendIn Invalide </div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <input type="email " formControlName="email" [(ngModel)]="etudiant.email " [pattern]="emailPattern" class=" form-control m-2 " placeholder="email ">
+                    <div *ngIf="f[ 'email'].touched && f[ 'email'].invalid " class="text-danger ">
+                        <div *ngIf="f[ 'email'].errors && f[ 'email'].errors[ 'required'] "> Email Invalid </div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <input type="password " formControlName="password " [(ngModel)]="etudiant.password " [pattern]="passwordPattern" class="form-control m-2 " placeholder="password ">
+                    <div *ngIf="f[ 'password'].touched && f[ 'password'].invalid " class="text-danger ">
+                        <div *ngIf="f[ 'password'].errors && f[ 'password'].errors[ 'required'] "> Mot de passe Invalide</div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <input type="tel " formControlName="tel " [(ngModel)]="etudiant.tel " [pattern]="telephonePattern" class="form-control m-2 " placeholder="Tel ">
+                    <div *ngIf="f[ 'tel'].touched && f[ 'tel'].invalid " class="text-danger ">
+                        <div *ngIf="f[ 'tel'].errors && f[ 'tel'].errors[ 'required'] ">Numéro de téléphone Invalide</div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <input type="text " formControlName="role " [pattern]="rolePattern" [(ngModel)]="etudiant.role " class="form-control m-2 " placeholder="role ">
+                    <div *ngIf="f[ 'role'].touched && f[ 'role'].invalid " class="text-danger ">
+                        <div *ngIf="f[ 'role'].errors && f[ 'role'].errors[ 'required'] "> Rôle Invalide</div>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between;margin: 32px 24px; " class="form-group ">
+                    <button type="submit " class="btn btn-primary " [disabled]="form.invalid " (click)="ajout() ">Ajouter</button>
+                    <button type="button " (click)="onReset() " class="btn btn-warning float-right ">Reset</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

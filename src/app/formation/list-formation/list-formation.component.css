@@ -1,0 +1,28 @@
+.bg-green{
+    background-color:darkolivegreen;
+}
+.film-item > .card > img{
+    filter: brightness(1);
+}
+
+.film-item > .card > img:hover{
+    filter: brightness(0.3);
+}
+
+
+.film-item > .card > .movie-title{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    font-weight: 600;
+    text-transform: capitalize;
+    left: 0;
+    top: calc( 50% - 22px );
+    display: none;
+}
+
+.film-item > .card:hover >.movie-title {
+    display: block;
+}

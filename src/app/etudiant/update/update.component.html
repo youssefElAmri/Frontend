@@ -1,0 +1,39 @@
+<div class="container">
+    <div style="display: flex; justify-content: space-between;margin: 24px 24px;">
+
+        <h2>Modifier un étudiant</h2>
+        <button class="btn btn-primary col-2" routerLink="/dashboard/list-us">Liste</button>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row" style="display: flex;justify-content: center;align-items:center">
+            <div class="col-6">
+                <input type="text" [(ngModel)]="etudiant.name" class="form-control m-2" placeholder="name">
+
+                <input type="text" [(ngModel)]="etudiant.lastname" class="form-control m-2" placeholder="lastname">
+                <input type="text" [(ngModel)]="etudiant.genre" class="form-control m-2" placeholder="genre">
+                <input type="number" [(ngModel)]="etudiant.age" class="form-control m-2" placeholder="age">
+
+                <input type="file" (change)="selectedimage($event)" class="form-control m-2" placeholder="image">
+
+
+                <!-- Current Image -->
+
+                <div class="container">
+                    <h2>Votre image actuelle</h2>
+                    <img [src]=" 'http://127.0.0.1:8000/getimageetudiant/' + etudiant.image " class="rounded-circle" alt=" Student Image" width="100" height="100" /> {{etudiant.image}}
+                </div>
+
+                <!-- Current Image -->
+
+                <input type="text" [(ngModel)]="etudiant.specialite" class="form-control m-2" placeholder="specialite">
+                <input type="text" [(ngModel)]="etudiant.linkFb" class="form-control m-2" placeholder="LinkFb">
+                <input type="text" [(ngModel)]="etudiant.linkLn" class="form-control m-2" placeholder="LinkLn">
+                <input type="text" [(ngModel)]="etudiant.email" class="form-control m-2" placeholder="email">
+                <!-- <input type="password" [(ngModel)]="etudiant.password"  class="form-control m-2" placeholder="password"> -->
+                <input type="tel" [(ngModel)]="etudiant.tel" class="form-control m-2" placeholder="Tel">
+                <input type="text" [(ngModel)]="etudiant.role" class="form-control m-2" placeholder="role">
+                <button class="btn btn-dark m-2 from-control" (click)="update()">update</button>
+            </div>
+        </div>
+    </div>
