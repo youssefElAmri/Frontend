@@ -28,8 +28,8 @@
                 </div>
 
                 <div class="form-group ">
-                    <input type="radio" class="form-control m-2 " value="male" [(ngModel)]="etudiant.genre " id="gender" name="gender" formControlName="genre"> Male
-                    <input type="radio" class="form-control m-2 " value="female" [(ngModel)]="etudiant.genre " id="gender" name="gender" formControlName="gender"> Female
+                    <input type="radio" class=" m-2 " value="male" [(ngModel)]="etudiant.genre " id="gender" name="gender" formControlName="genre"> Male
+                    <input type="radio" class="m-2 " value="female" [(ngModel)]="etudiant.genre " id="gender" name="gender" formControlName="gender"> Female
                     <!-- <input type="text " formControlName="genre" [(ngModel)]="etudiant.genre " class="form-control m-2 " placeholder="genre "> -->
                     <div *ngIf="f['genre'].touched && f['genre'].invalid" class="text-danger">
                         <div *ngIf="f['genre'].errors && f['genre'].errors['required']">Genre Invalide</div>

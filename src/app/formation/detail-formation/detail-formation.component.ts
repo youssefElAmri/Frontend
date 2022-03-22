@@ -13,21 +13,17 @@ export class DetailFormationComponent implements OnInit {
   id :any;
   listfor : any[]=[];
   list : any[]=[];
-  
-  
+
+
 
   constructor(private formationservice :FormationService, private router : Router, private route : ActivatedRoute) { }
-   
+
   ngOnInit(): void {
     this.getbyid();
     this.getformation();
-    
-  }
-etudiantpargroupe(){
- 
 
-}
-  
+  }
+
 
   getbyid(){
     this.id = this.route.snapshot.paramMap.get('id');
@@ -39,25 +35,25 @@ etudiantpargroupe(){
   }
   getformation(){
     this.formationservice.getAll().subscribe(element =>{
- 
+
       this.list=element;
-      
-      
+
+
     }, error =>{
       console.log(error);
-      
+
     })
-    
+
  }
   image:any;
-    
+
   selectedimage(event:any){
     this.image=event.target.files[0];
 
   }
- 
-  
 
-  
+
+
+
 
 }

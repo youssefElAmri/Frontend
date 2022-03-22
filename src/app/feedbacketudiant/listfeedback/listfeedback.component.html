@@ -1,0 +1,71 @@
+<div class="content mt-5">
+
+    <div class="container-fluid">
+
+
+        <div class="row" style="display: flex;justify-content: center;align-items:center">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row mb-2">
+                            <div class="col-sm-5">
+                                <a> Les Feedbacks</a>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="text-sm-end">
+                                    <button routerLink="/dashboard" type="button" class="btn btn-success btn-sm ms-3">Acceuil</button>
+
+                                </div>
+                            </div>
+                            <!-- end col-->
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table table-centered table-striped dt-responsive nowrap w-100" id="products-datatable">
+                                <thead>
+                                    <tr>
+
+                                        <th>Nom</th>
+                                        <th>Formation</th>
+                                        <th>Text</th>
+
+                                        <th style="width: 75px;">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let l of list;">
+
+                                        <td class="table-user">
+                                            <img [src]="'http://127.0.0.1:8000/getimageetudiant/' + l.etudiant[0].image" alt="table-user" class="me-2 rounded-circle">
+                                            <a href="javascript:void(0);" class="text-body fw-semibold">{{l.etudiant[0].name}}
+                                          </a>
+                                        </td>
+                                        <td>
+                                            {{l.formation[0].title}}
+                                        </td>
+                                        <td>
+                                            {{l.text}}
+                                        </td>
+                                        <td>
+
+                                            <i (click)="delete(l._id)" class="mdi mdi-delete action-icon"></i>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end card-body-->
+                </div>
+                <!-- end card-->
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end row -->
+
+    </div>
+    <!-- container -->
+
+</div>
+<!-- content -->

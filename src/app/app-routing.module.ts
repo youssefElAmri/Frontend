@@ -1,3 +1,10 @@
+import { ListfeedbackComponent } from './feedbacketudiant/listfeedback/listfeedback.component';
+import { DashformateurComponent } from './dashformateur/dashformateur.component';
+import { DepotComponent } from './depot/depot.component';
+import { AddfeedbackComponent } from './feedbacketudiant/addfeedback/addfeedback.component';
+import { EtudiantquestionComponent } from './question/etudiantquestion/etudiantquestion.component';
+import { AgendaComponent } from './agenda/agenda.component';
+import { DashetudiantComponent } from './dashetudiant/dashetudiant.component';
 import { ChangepasswordformateurComponent } from './formateur/changepasswordformateur/changepasswordformateur.component';
 import { ChangepasswordetudiantComponent } from './etudiant/changepasswordetudiant/changepasswordetudiant.component';
 import { NgModule } from '@angular/core';
@@ -19,14 +26,43 @@ import { AddFormationComponent } from './formation/add-formation/add-formation.c
 import { DetailFormationComponent } from './formation/detail-formation/detail-formation.component';
 import { ListFormationComponent } from './formation/list-formation/list-formation.component';
 import { UpdateFormationComponent } from './formation/update-formation/update-formation.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
 
-  {path: '', redirectTo:'/dashboard', pathMatch: 'full'},
+  {path: '', redirectTo:'/login', pathMatch: 'full'},
 
-  { path:'dashboard' , component: DashboardComponent , children:[
+  {path:'login' , component: LoginComponent},
 
-    {path: '', redirectTo:'/dashboard/list-us', pathMatch: 'full'},
+
+  { path:'dashetudiant'  , component:DashetudiantComponent, children:[
+
+    {path: '', redirectTo:'/dashetudiant/agenda', pathMatch: 'full'},
+
+
+    {path:'agenda',component:AgendaComponent},
+    {path:'questionetudiant',component:EtudiantquestionComponent},
+    {path:'feedetudiant',component:AddfeedbackComponent},
+    {path:'depot',component:DepotComponent}
+
+
+
+  ]},
+
+
+
+
+  { path:'dashformateur'  , component:DashformateurComponent, children:[
+
+
+  ]},
+
+
+
+  { path:'dashboard' , canActivate: [AuthGuard], component: DashboardComponent , children:[
+
+    {path: '', redirectTo:'/dashboard', pathMatch: 'full'},
 
     { path: 'list-us', component: ListComponent },
     { path: 'ajoutetudiant' , component: AddEtudiantComponent },
@@ -51,7 +87,9 @@ const routes: Routes = [
 
     {path: 'list-emploi',component:ListEmploiComponent},
     {path: 'add-emploi',component:AddEmploiComponent},
-    {path:'update-emp/:id',component:UpdateEmpComponent}
+    {path:'update-emp/:id',component:UpdateEmpComponent},
+
+    {path:'list-feedback',component:ListfeedbackComponent}
 
 
   ] },

@@ -32,6 +32,20 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChangepasswordetudiantComponent } from './etudiant/changepasswordetudiant/changepasswordetudiant.component';
 import { ChangepasswordformateurComponent } from './formateur/changepasswordformateur/changepasswordformateur.component';
+import { LoginComponent } from './login/login.component';
+import { DashetudiantComponent } from './dashetudiant/dashetudiant.component';
+import { DashformateurComponent } from './dashformateur/dashformateur.component';
+import { DepotComponent } from './depot/depot.component';
+import { FeedbacketudiantComponent } from './feedbacketudiant/feedbacketudiant.component';
+import { QuestionComponent } from './question/question.component';
+import { AddfeedbackComponent } from './feedbacketudiant/addfeedback/addfeedback.component';
+import { ListfeedbackComponent } from './feedbacketudiant/listfeedback/listfeedback.component';
+import { HeaderetudiantComponent } from './dashetudiant/headeretudiant/headeretudiant.component';
+import { SidebaretudiantComponent } from './dashetudiant/sidebaretudiant/sidebaretudiant.component';
+import { FooteretudiantComponent } from './dashetudiant/footeretudiant/footeretudiant.component';
+import { EtudiantquestionComponent } from './question/etudiantquestion/etudiantquestion.component';
+import { AgendaComponent } from './agenda/agenda.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -61,6 +75,19 @@ import { ChangepasswordformateurComponent } from './formateur/changepasswordform
     UpdateEmpComponent,
     ChangepasswordetudiantComponent,
     ChangepasswordformateurComponent,
+    LoginComponent,
+    DashetudiantComponent,
+    DashformateurComponent,
+    DepotComponent,
+    FeedbacketudiantComponent,
+    QuestionComponent,
+    AddfeedbackComponent,
+    ListfeedbackComponent,
+    HeaderetudiantComponent,
+    SidebaretudiantComponent,
+    FooteretudiantComponent,
+    EtudiantquestionComponent,
+    AgendaComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +97,9 @@ import { ChangepasswordformateurComponent } from './formateur/changepasswordform
     ReactiveFormsModule,
     NgMultiSelectDropDownModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

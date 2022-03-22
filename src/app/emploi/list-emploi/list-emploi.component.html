@@ -1,10 +1,10 @@
-<div class="row">
-    <div class="col-12">
-        <div class="page-title-box">
-            <h4 class="page-title">Liste des Emplois
-                <a [routerLink]="['/dashboard/add-emploi']" data-bs-toggle="modal" data-bs-target="#add-new-task-modal" class="btn btn-success btn-sm ms-3">Ajouter</a></h4>
-        </div>
+<div class="container">
+
+    <div style="display: flex; justify-content: space-between;margin: 32px 24px;">
+        <h4>Les Emplois</h4>
+        <button [routerLink]="['/dashboard/add-emploi']" data-bs-toggle="modal" data-bs-target="#add-new-task-modal" class="btn btn-success btn-sm ms-3">Ajouter</button>
     </div>
+
 </div>
 
 <div class="row">
@@ -18,9 +18,9 @@
                     <!-- Task Item -->
                     <div *ngFor="let l of list" class="card mb-0 col-3 m-3">
                         <div class="card-body p-3">
-                            <small class="float-end text-muted"> De {{l.dateheure | date}}</small>
-                            <br>
-                            <small class="float-end text-muted"> Jusqu'à {{l.endDate | date}}</small>
+                            <small class="float-end text-muted">de {{l.dateheure | date}}</small><br>
+                            <small class="float-end text-muted">jusqu'à {{l.enddate | date}}</small>
+
 
 
                             <h5 class="mt-2 mb-2">

@@ -1,157 +1,128 @@
 <div class="content">
-  <!-- end Topbar -->
+    <!-- end Topbar -->
 
-  <!-- Start Content-->
-  <div class="container-fluid">
-    <!-- start page title -->
-    <div class="row">
-      <div class="col-12">
-        <div class="page-title-box">
-          <h4 class="page-title"> Détail du Formation : </h4>
-        </div>
-      </div>
-    </div>
-    <!-- end page title -->
-
-    <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-lg-5">
-                <!-- Product image -->
-                <a href="javascript: void(0);" class="text-center d-block mb-4">
-                  <img
-                    [src]="'http://127.0.0.1:8000/getimageformation/' + formation.image "
-                    class="img-fluid"
-                    style="max-width: 280px"
-                    alt="Product-img"
-                  />
-                </a>
-
-                <div class="d-lg-flex d-none justify-content-center">
-                  <a href="javascript: void(0);">
-                    <img
-                    [src]="'http://127.0.0.1:8000/getimageformation/' + formation.image "
-                      class="img-fluid img-thumbnail p-2"
-                      style="max-width: 75px"
-                      alt="Product-img"
-                    />
-                  </a>
-                  <a href="javascript: void(0);" class="ms-2">
-                    <img
-                    [src]="'http://127.0.0.1:8000/getimageformation/' + formation.image "
-                      class="img-fluid img-thumbnail p-2"
-                      style="max-width: 75px"
-                      alt="Product-img"
-                    />
-                  </a>
-                  <a href="javascript: void(0);" class="ms-2">
-                    <img
-                      [src]="'http://127.0.0.1:8000/getimageformation/' + formation.image "
-                      class="img-fluid img-thumbnail p-2"
-                      style="max-width: 75px"
-                      alt="Product-img"
-                    />
-                  </a>
+    <!-- Start Content-->
+    <div class="container-fluid">
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box" style="display: flex; justify-content: space-between;margin: 32px 24px;">
+                    <h4 class="page-title"> Détail du Formation : </h4>
+                    <button routerLink="/dashboard/list-formation" class="btn btn-primary"> <i class="mdi mdi-arrow-left-box action-icon" ></i></button>
                 </div>
-              </div>
-              <!-- end col -->
-              <div class="col-lg-7">
-                <form class="ps-lg-4">
-                  <!-- Product title -->
-                  <h3 class="mt-0">
-                    {{formation.title}}
-                    <a href="javascript: void(0);" class="text-muted"
-                      ><i [routerLink]="['/dashboard/update-formation' , formation._id ]"  class="mdi mdi-square-edit-outline ms-2"></i
-                    ></a>
-                  </h3>
-                  <p class="mb-1">Date: {{formation.date}}</p>
-                  <p class="font-16">
-                    <span class="text-warning mdi mdi-star"></span>
-                    <span class="text-warning mdi mdi-star"></span>
-                    <span class="text-warning mdi mdi-star"></span>
-                    <span class="text-warning mdi mdi-star"></span>
-                    <span class="text-warning mdi mdi-star"></span>
-                  </p>
-
-               
-
-                  <!-- Product description -->
-                  <div class="mt-4">
-                    <h6 class="font-14"> Price:</h6>
-                    <h3>{{formation.prix}}</h3>
-                  </div>
-
-                  <!-- Quantity -->
-                  <div class="mt-4">
-                    <h6 class="font-14">Nombre de place</h6>
-                    <h3>Limité</h3>
-                  </div>
-
-                  <!-- Product description -->
-                  <div class="mt-4">
-                    <h6 class="font-14">Description:</h6>
-                    <p>
-                      {{formation.description}}
-                    </p>
-                  </div>
-
-                  <!-- Product information -->
-                  <div class="mt-4">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <h6 class="font-14">Formateur</h6>
-                        <p class="text-sm lh-150">{{formation.formateur}}</p>
-                      </div>
-                      <div class="col-md-4">
-                        <h6 class="font-14">Technologies:</h6>
-                        <p class="text-sm lh-150">{{formation.technologies}}</p>
-                      </div>
-                      <div class="col-md-4">
-                        <h6 class="font-14">Nombres d'heures</h6>
-                        <p class="text-sm lh-150">{{formation.nbrHeures}}</p>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <!-- end col -->
             </div>
-            <!-- end row-->
-            <h2>Groupes</h2>
-            <table class="table table-striped table-centered">
-              <thead>
-                  <tr>
-                      <th> name</th>
-                     
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr *ngFor="let e of formation.groupe">
-                    
-                      <td> {{e.name}} </td>
-                      <td class="table-action">
-                         
-                          <i  [routerLink]="['/dashboard/profiletudiant' , e._id ]"  class="mdi mdi-account action-icon" ></i>
-          
-                      </td>
-                  </tr>
-                
-            
-                  
-                   
-              </tbody>
-          </table>
-            <!-- end table-responsive-->
-          </div>
-          <!-- end card-body-->
         </div>
-        <!-- end card-->
-      </div>
-      <!-- end col-->
+        <!-- end page title -->
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <!-- Product image -->
+                                <a href="javascript: void(0);" class="text-center d-block mb-4 mt-5">
+                                    <img [src]="'http://127.0.0.1:8000/getimageformation/' + formation.image " class="img-fluid" style="max-width: 280px" alt="Product-img" />
+                                </a>
+
+
+                            </div>
+                            <!-- end col -->
+                            <div class="col-lg-7">
+                                <form class="ps-lg-4">
+                                    <!-- Product title -->
+                                    <h3 class="mt-0">
+                                        {{formation.title}}
+                                        <a href="javascript: void(0);" class="text-muted"><i [routerLink]="['/dashboard/update-formation' , formation._id ]"  class="mdi mdi-square-edit-outline ms-2"></i
+                    ></a>
+                                    </h3>
+                                    <p class="mb-1"> Date: {{formation.date | date }}</p>
+                                    <p class="font-16">
+                                        <span class="text-warning mdi mdi-star"></span>
+                                        <span class="text-warning mdi mdi-star"></span>
+                                        <span class="text-warning mdi mdi-star"></span>
+                                        <span class="text-warning mdi mdi-star"></span>
+                                        <span class="text-warning mdi mdi-star"></span>
+                                    </p>
+
+
+
+                                    <!-- Product description -->
+                                    <div class="mt-4">
+                                        <h6 class="font-14"> Prix:</h6>
+                                        <h3>{{formation.prix}}</h3>
+                                    </div>
+
+                                    <!-- Quantity -->
+                                    <div class="mt-4">
+                                        <h6 class="font-14">Nombre de place</h6>
+                                        <h3>Limité</h3>
+                                    </div>
+
+                                    <!-- Product description -->
+                                    <div class="mt-4">
+                                        <h6 class="font-14">Description:</h6>
+                                        <p>
+                                            {{formation.description}}
+                                        </p>
+                                    </div>
+
+                                    <!-- Product information -->
+                                    <div class="mt-4">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <h6 class="font-14">Formateur</h6>
+                                                <p class="text-sm lh-150">{{formation.formateur}}</p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h6 class="font-14">Technologies:</h6>
+                                                <p class="text-sm lh-150">{{formation.technologies}}</p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h6 class="font-14">Nombres d'heures</h6>
+                                                <p class="text-sm lh-150">{{formation.nbrHeures}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row-->
+                        <h2>Groupes</h2>
+                        <table class="table table-striped table-centered">
+                            <thead>
+                                <tr>
+                                    <td>#</td>
+                                    <th> nom</th>
+                                    <th>option</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let e of formation.groupe;let i = index">
+                                    <td> {{i}} </td>
+                                    <td> {{e.name}} </td>
+                                    <td class="table-action">
+
+                                        <i [routerLink]="['/dashboard/profiletudiant' , e._id ]" class="mdi mdi-account action-icon"></i>
+
+                                    </td>
+                                </tr>
+
+
+
+
+                            </tbody>
+                        </table>
+                        <!-- end table-responsive-->
+                    </div>
+                    <!-- end card-body-->
+                </div>
+                <!-- end card-->
+            </div>
+            <!-- end col-->
+        </div>
+        <!-- end row-->
     </div>
-    <!-- end row-->
-  </div>
-  <!-- container -->
+    <!-- container -->
 </div>

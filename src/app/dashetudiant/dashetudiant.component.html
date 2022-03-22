@@ -1,0 +1,32 @@
+<!-- Begin page -->
+<div class="wrapper">
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="leftside-menu">
+        <app-sidebaretudiant></app-sidebaretudiant>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
+
+    <div class="content-page">
+        <div class="content">
+            <app-headeretudiant></app-headeretudiant>
+
+            <!-- end Topbar -->
+
+            <!-- Start Content-->
+            <div class="container-fluid">
+                <!-- start page title -->
+                <router-outlet></router-outlet>
+                <!-- container -->
+            </div>
+            <!-- content -->
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- END wrapper -->
+    <app-footeretudiant></app-footeretudiant>

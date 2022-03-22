@@ -1,16 +1,16 @@
-.bg-green{
-    background-color:darkolivegreen;
+.bg-green {
+    background-color: rgb(150, 14, 48);
 }
-.film-item > .card > img{
+
+.film-item>.card>img {
     filter: brightness(1);
 }
 
-.film-item > .card > img:hover{
+.film-item>.card>img:hover {
     filter: brightness(0.3);
 }
 
-
-.film-item > .card > .movie-title{
+.film-item>.card>.movie-title {
     position: absolute;
     width: 100%;
     text-align: center;
@@ -19,10 +19,14 @@
     font-weight: 600;
     text-transform: capitalize;
     left: 0;
-    top: calc( 50% - 22px );
+    top: calc( 50% - 22px);
     display: none;
 }
 
-.film-item > .card:hover >.movie-title {
+.film-item>.card:hover>.movie-title {
     display: block;
+}
+
+body {
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

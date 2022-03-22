@@ -1,5 +1,5 @@
- <!-- Topbar Start -->
- <div class="navbar-custom">
+<!-- Topbar Start -->
+<div class="navbar-custom">
     <ul class="list-unstyled topbar-menu float-end mb-0">
         <li class="dropdown notification-list d-lg-none">
             <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
@@ -13,7 +13,7 @@
         </li>
         <li class="dropdown notification-list topbar-dropdown">
             <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                <img src="assets/images/flags/us.jpg" alt="user-image" class="me-0 me-sm-1" height="12"> 
+                <img src="assets/images/flags/us.jpg" alt="user-image" class="me-0 me-sm-1" height="12">
                 <span class="align-middle d-none d-sm-inline-block">English</span> <i class="mdi mdi-chevron-down d-none d-sm-inline-block align-middle"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu">
@@ -52,10 +52,10 @@
                 <div class="dropdown-item noti-title">
                     <h5 class="m-0">
                         <span class="float-end">
-                            <a href="javascript: void(0);" class="text-dark">
-                                <small>Clear All</small>
-                            </a>
-                        </span>Notification
+                          <a href="javascript: void(0);" class="text-dark">
+                              <small>Clear All</small>
+                          </a>
+                      </span>Notification
                     </h5>
                 </div>
 
@@ -124,8 +124,8 @@
 
                 <!-- All-->
                 <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
-                    View All
-                </a>
+                  View All
+              </a>
 
             </div>
         </li>
@@ -177,7 +177,8 @@
                                 <span>G Suite</span>
                             </a>
                         </div>
-                    </div> <!-- end row-->
+                    </div>
+                    <!-- end row-->
                 </div>
 
             </div>
@@ -190,14 +191,14 @@
         </li>
 
         <li class="dropdown notification-list">
-            <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
-                aria-expanded="false">
-                <span class="account-user-avatar"> 
-                    <img src="assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
-                </span>
+            <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <span class="account-user-avatar">
+                  <img [src]="'http://127.0.0.1:8000/getimageadmin/' + admin.image " alt="user-image" class="rounded-circle">
+              </span>
                 <span>
-                    <span class="account-user-name">Dominic Keller</span>
-                    <span class="account-position">Founder</span>
+
+                  <span class="account-user-name">{{admin.name}}</span>
+                <span class="account-position">{{admin.role}}</span>
                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
@@ -231,7 +232,7 @@
                 </a>
 
                 <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                <a (click)="logout()" class="dropdown-item notify-item">
                     <i class="mdi mdi-logout me-1"></i>
                     <span>Logout</span>
                 </a>
@@ -240,12 +241,12 @@
 
     </ul>
     <button class="button-menu-mobile open-left">
-        <i class="mdi mdi-menu"></i>
-    </button>
+      <i class="mdi mdi-menu"></i>
+  </button>
     <div class="app-search dropdown d-none d-lg-block">
         <form>
             <div class="input-group">
-                <input type="text" class="form-control dropdown-toggle"  placeholder="Search..." id="top-search">
+                <input type="text" class="form-control dropdown-toggle" placeholder="Search..." id="top-search">
                 <span class="mdi mdi-magnify search-icon"></span>
                 <button class="input-group-text btn-primary" type="submit">Search</button>
             </div>

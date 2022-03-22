@@ -1,0 +1,25 @@
+<form class="form-control mt-5">
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-3 col-form-label">Text</label>
+        <div class="col-9">
+            <input type="text" class="form-control" [(ngModel)]="feedback.text" placeholder="text">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-3 col-form-label">Formations</label>
+
+        <div class="col-9">
+
+            <select [(ngModel)]="feedback.idFormation" class=" form-select " id="example-select ">
+              <option *ngFor="let l of list " class="form-control" value="{{l._id}}">{{l.title}}</option>
+          </select>
+        </div>
+    </div>
+
+
+    <div class="justify-content-end row">
+        <div class="col-9">
+            <button type="submit" class="btn btn-info" (click)="ajout()">ajouter</button>
+        </div>
+    </div>
+</form>
