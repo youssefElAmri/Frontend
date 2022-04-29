@@ -26,9 +26,11 @@ export class EtudiantService {
     update(id:any,etudiant:any){
       return this.httpClient.put(baseUrli+'/updateetudiant/'+ id, etudiant);
     }
-    updatepass(id:any,etudiant:any){
-      return this.httpClient.put(baseUrli+'/updateetudiantpass/'+ id, etudiant);
+
+    updateetudiantpass(etudiant:any){
+      return this.httpClient.put(baseUrli+'/updateetudiantpass', etudiant);
     }
+
     getById(id:any){
       return this.httpClient.get(baseUrli+'/getetudiantbyid/'+id);
     }

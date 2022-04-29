@@ -14,41 +14,29 @@ import Swal from 'sweetalert2';
 })
 export class ChangepasswordetudiantComponent implements OnInit {
 
-  // form: FormGroup = new FormGroup({
+  passwordform: FormGroup = new FormGroup ({
 
-  //   password: new FormControl(''),
-  //   newpassword: new FormControl(''),
-  //   confirmPassword: new FormControl('')
+    prevpassword: new FormControl('',[
+      Validators.required,
+      Validators.minLength(6)
+    ]),
+    newpassword: new FormControl('',[
+      Validators.required,
+      Validators.minLength(6)
+    ]),
+    confirmpassword: new FormControl('',[
+      Validators.required,
+      Validators.minLength(6)
+    ]),
+  });
 
-  // });
-
-  passwordform : FormGroup;
+  //passwordform : FormGroup;
 
   submitted = false;
 
   passwordPattern = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$";
 
-  constructor(private EtudiantService: EtudiantService, private formBuilder: FormBuilder, private Router: Router, private route: ActivatedRoute) {
-
-    let formControls = {
-
-      prevpassword: new FormControl('',[
-        Validators.required,
-        Validators.minLength(6)
-      ]),
-      newpassword: new FormControl('',[
-        Validators.required,
-        Validators.minLength(6)
-      ]),
-      confirmpassword: new FormControl('',[
-        Validators.required,
-        Validators.minLength(6)
-      ]),
-    }
-
-    this.passwordform = this.formBuilder.group(formControls)
-
-  }
+  constructor(private EtudiantService: EtudiantService, private formBuilder: FormBuilder, private Router: Router, private route: ActivatedRoute) {}
 
   get prevpassword() { return this.passwordform.get('prevpassword') }
   get newpassword() { return this.passwordform.get('newpassword') }
@@ -57,48 +45,9 @@ export class ChangepasswordetudiantComponent implements OnInit {
   id: any;
 
   ngOnInit(): void {
+
+    this.passwordform = this.formBuilder.group(this.passwordform);
     this.getetudiantbyid();
-
-
-    // this.form = this.formBuilder.group({
-
-    //   password: [
-    //     '',
-    //     [
-    //       Validators.required,
-    //       Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$"),
-    //       Validators.minLength(6),
-    //       Validators.maxLength(40)
-    //     ]
-    //   ],
-    //   newpassword: [
-    //     '',
-    //     [
-    //       Validators.required,
-    //       Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$"),
-    //       Validators.minLength(6),
-    //       Validators.maxLength(40)
-    //     ]
-    //   ],
-    //   confirmpassword: [
-    //     '',
-    //     [
-    //       Validators.required,
-    //       Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$"),
-    //       Validators.minLength(6),
-    //       Validators.maxLength(40),
-
-
-    //     ]
-    //   ],
-
-
-    // }
-
-    // );
-
-
-
   }
 
 
@@ -129,34 +78,35 @@ export class ChangepasswordetudiantComponent implements OnInit {
 
   etudiant: any = {
     prevpassword:'',
-    password: '',
-    confirmpassword:''
+    newpassword: '',
+    confirmpassword:'',
+    id : ''
   }
 
 
-  changer() {
+  changerpassword() {
     let f = new FormData();
     f.append('newpassword', this.etudiant.password);
-
-    this.EtudiantService.updatepass('6238509d1989fdc6ed033a91', f).subscribe(
+     this.etudiant.id=this.route.snapshot.paramMap.get('id');
+    this.EtudiantService.updateetudiantpass(this.etudiant).subscribe(
       (res) => {
 
         console.log(res)
         this.Router.navigate(['/dashboard/list-us'])
       },
-      err => {
-        console.log(err);
+      error => {
+        console.log(error);
 
       }
     );
 
-    Swal.fire({
-      position: 'top-end',
-      icon: 'success',
-      title: 'Mot de Passe changé avec succès !',
-      showConfirmButton: false,
-      timer: 1500
-    });
+    // Swal.fire({
+    //   position: 'top-end',
+    //   icon: 'success',
+    //   title: 'Mot de Passe changé avec succès !',
+    //   showConfirmButton: false,
+    //   timer: 1500
+    // });
   }
 
 }
